@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <title>Cookie Clicker</title>
+        <style>
+            body {
+                background-color: black;
+                font-family: Merriweather;
+                font-weight: bold;
+                scrollbar-color: gray rgb(30, 36, 43);
+            }
+            p {
+                text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+                margin: 0;
+            }
+            button {
+                font-family: Meerriweather;
+                font-size: 20px;
+                font-weight: bold;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+                margin: 0;
+                padding: 0;
+                color: white;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+            .main {
+                display: grid;
+                grid-template-columns: 1fr 2.4fr;
+                grid-template-rows: 100vh;
+            }
+            .main-left-side {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            .background-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .img-cookie-background {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .shadow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: inset 0 0 200px rgba(0, 0, 0, 1);
+            }
+            .div-main-cookie {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .main-name-bakery {
+                background-color: rgba(0, 0, 0, 0.4);
+                border: none;
+                width: 70%;
+                border-radius: 50px;
+                color: rgb(189, 189, 189);
+                margin: 80px 0 0 0;
+                font-size: 25px;
+                padding: 3px 0px;
+            }
+            .main-name-bakery:hover {
+                color: white;
+                text-shadow: 0 0 5px white;
+            }
+            .p-cookie-bank {
+                font-size: 40px;
+                padding: 10px 0 10px 0;
+                margin: 10px 0 10px 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+                text-align: center;
+                color: white;
+            }
+            .button-main-cookie {
+                background-color: transparent;
+                padding: 0px;
+                border-radius: 50%;
+                border: none;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .img-main-cookie {
+                width: 280px;
+                background-color: none;
+                border-radius: 50%;
+                transition: width 0.2s;
+            }
+            .img-main-cookie:hover {width: 300px;}
+            .img-main-cookie:active{width: 290px;}
+
+            .main-right-side {
+                display: grid;
+                grid-template-columns: 1fr 300px;
+            }
+            .main-left-buildings {
+                border-left: 10px solid rgb(94, 56, 10);
+                overflow-y: scroll;
+                position: relative;
+            }
+            .header {
+                position: absolute;
+                top: 0;
+            }
+            .img-header {
+                width: 100%;
+            }
+            .img-buildings-background {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+                background-repeat: repeat;
+            }
+            .main-left-upgrades {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                position: relative;
+                border-left: 10px solid rgb(94, 56, 10);
+                overflow-y: scroll;
+            }
+            .img-upgrade-background {
+                width: 100%;
+                height: 100%;
+            }
+            .upgrade-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                position: absolute;
+            }
+            .upgrade-title {
+                margin: 10px 0 0 0;
+                color: white;
+                font-size: 35px;
+            }
+            .upgrade-grid {
+                display: grid;
+                width: 100%;
+                grid-template-columns: 60px 60px 60px 60px 60px;
+                grid-template-rows: 60px;
+                box-sizing: border-box;
+                border-bottom: 5px solid rgb(94, 56, 10);
+            }
+            .upgrade-img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                object-position: top left;
+            }
+            .store-buildings {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
+            .button-store-building {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                background-color: rgb(0, 0, 0);
+                padding: 0;
+                width: 100%;
+                height: 60px;
+                position: relative;
+            }
+            .store-building-background {
+                width: 100%;
+                height: 60px;
+                object-fit: cover;
+                object-position: top left;
+            }
+            .building-stats {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                position: absolute;
+                margin: 0 0 0 20px;
+                font-size: 30px;
+            }
+            .building-price {
+                font-size: 15px;
+                color: rgb(0, 255, 21);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main-left-side">
+                <div class="background-wrapper">
+                    <img class="img-cookie-background" src="Backgrounds/bgBlue.jpg">
+                    <div class="shadow"></div>
+                </div>
+                <div class="div-main-cookie">
+                    <button class="main-name-bakery">Electro Dolphin's bakery</button>
+                    <p class="p-cookie-bank">0 cookies</p>    
+                    <button class="button-main-cookie" onclick="clickMainCookie()">
+                        <img class="img-main-cookie" src="images/big-cookie.png">
+                    </button>
+                </div>
+
+            </div>
+    
+            <div class="main-right-side">
+                <div class="main-left-buildings">
+                    <img class="img-buildings-background" src="Backgrounds/bgBlue.jpg">
+                    <div class="header">
+                        <img class="img-header" src="backgrounds/header.png">
+                    </div>
+                </div>
+                <div class="main-left-upgrades">
+                    <div class="background-wrapper">
+                        <img class="img-upgrade-background" src="backgrounds/bgBlue.jpg">
+                        <div class="shadow"></div>
+                    </div>
+                    <div class="upgrade-content">
+                        <p class="upgrade-title">Store</p>
+                        <div class="upgrade-grid">
+                            <img class="upgrade-img" src="backgrounds/upgradeFrame.png">
+                            <img class="upgrade-img" src="backgrounds/upgradeFrame.png">
+                            <img class="upgrade-img" src="backgrounds/upgradeFrame.png">
+                            <img class="upgrade-img" src="backgrounds/upgradeFrame.png">
+                            <img class="upgrade-img" src="backgrounds/upgradeFrame.png">
+                        </div>
+                        
+                        <div class="store-buildings">
+                            <button class="button-store-building">
+                                <img class="store-building-background" src="backgrounds/storeTile.jpg">
+                                <div class="building-stats">
+                                    <p class="building-name">Cursor</p>
+                                    <p class="building-price">15 cookies</p>
+                                </div>
+                            </button>
+
+                            <button class="button-store-building">
+                                <img class="store-building-background" src="backgrounds/storeTile.jpg">
+                                <div class="building-stats">
+                                    <p class="building-name">Grandma</p>
+                                    <p class="building-price">100 cookies</p>
+                                </div>
+                            </button>
+
+                            <button class="button-store-building">
+                                <img class="store-building-background" src="backgrounds/storeTile.jpg">
+                                <div class="building-stats">
+                                    <p class="building-name">Farm</p>
+                                    <p class="building-price">1.100 cookies</p>
+                                </div>
+                            </button>
+
+                            <button class="button-store-building">
+                                <img class="store-building-background" src="backgrounds/storeTile.jpg">
+                                <div class="building-stats">
+                                    <p class="building-name">Mine</p>
+                                    <p class="building-price">10.000 cookies</p>
+                                </div>
+                            </button>
+
+                            <button class="button-store-building">
+                                <img class="store-building-background" src="backgrounds/storeTile.jpg">
+                                <div class="building-stats">
+                                    <p class="building-name">Factory</p>
+                                    <p class="building-price">150.000 cookies</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let save = JSON.parse(localStorage.getItem('save')) || {cookieBank: 0}
+            document.querySelector('.p-cookie-bank').innerHTML = `${save.cookieBank} cookies`;
+            function clickMainCookie() {
+                save.cookieBank += 1;
+                localStorage.setItem('save', JSON.stringify(save));
+                document.querySelector('.p-cookie-bank').innerHTML = `${save.cookieBank} cookies`;
+            }
+        </script>
+    </body>
+</html>
